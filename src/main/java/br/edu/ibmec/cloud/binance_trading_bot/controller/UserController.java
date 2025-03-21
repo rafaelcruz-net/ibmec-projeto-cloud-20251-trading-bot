@@ -27,8 +27,6 @@ public class UserController {
     @Autowired
     private UserTrackingTickerRepository userTrackingTickerRepository;
 
-
-
     @PostMapping
     public ResponseEntity<User> create(@RequestBody User user) {
         this.userRepository.save(user);
