@@ -35,4 +35,9 @@ public class User {
     @OneToMany
     @JoinColumn(name = "id_usuario", referencedColumnName = "id")
     private List<UserTrackingTicker> trackingTickers;
+
+    @OneToMany
+    @JoinColumn(name = "id_usuario", referencedColumnName = "id")
+    private List<UserOrderReport> orderReports;
+
 }
