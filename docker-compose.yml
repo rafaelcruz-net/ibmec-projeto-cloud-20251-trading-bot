@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  mysql:
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_DATABASE=ibmec-trading-bot
+      - MYSQL_USER=spring_user
+      - MYSQL_PASSWORD=spring_senha
+    ports:
+      - "3301:3306"
+    volumes:
+      - /c/volumes/mysql_data:/var/lib/mysql    
+    
