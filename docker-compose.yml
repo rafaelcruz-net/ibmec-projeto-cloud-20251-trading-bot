@@ -1,6 +1,6 @@
 version: '3.8'
 services:
-  mysql:
+  db:
     image: mysql:8.0
     environment:
       - MYSQL_ROOT_PASSWORD=admin
@@ -11,4 +11,18 @@ services:
       - "3301:3306"
     volumes:
       - /c/volumes/mysql_data:/var/lib/mysql    
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/ibmec-trading-bot
+      - SPRING_DATASOURCE_USERNAME=spring_user
+      - SPRING_DATASOURCE_PASSWORD=spring_senha
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - SPRING_JPA_SHOW_SQL=true
+      - SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.MySQL8Dialect
+      
     
