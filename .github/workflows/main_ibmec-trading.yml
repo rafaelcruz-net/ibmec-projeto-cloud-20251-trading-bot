@@ -38,8 +38,8 @@ jobs:
         uses: azure/docker-login@v1
         with:
           login-server: ibmecdockerimage.azurecr.io
-          username: ibmecdockerimage
-          password: 9WM/8QA+8OdML7oBap3WUBk/oflYanRhuzjKY9HJAj+ACRDwDPib
+          username: {{secrets.AZURE_CONTAINER_REGISTRY_USERNAME}}
+          password: {{secrets.AZURE_CONTAINER_REGISTRY_PASSWORD}}
       
       - name: Build Docker image and Push
         run: |
