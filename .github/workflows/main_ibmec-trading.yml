@@ -43,7 +43,7 @@ jobs:
       
       - name: Build Docker image and Push
         run: |
-          docker-compose build -f ./docker-compose.yml
+          docker-compose build
           docker tag ibmec-projeto-cloud-20251-trading-bot-app:latest ibmecdockerimage.azurecr.io/ibmec-trading:latest
           docker push ibmecdockerimage.azurecr.io/ibmec-trading:latest
 
